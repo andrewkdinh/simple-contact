@@ -1,0 +1,19 @@
+version: '2.0'
+services:
+  simple-contact:
+    container_name: simple-contact
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - 8672:80
+    depends_on: 
+      - rust-captcha
+    environment:
+      - HTTP_ENDPOINT=${HTTP_ENDPOINT} # Send messages to this endpoint
+      - ESCAPE_HTML=${ESCAPE_HTML} # Whether the contents of the message should be escaped for HTML
+  rust-captcha:
+    container_name: rust-captcha
+    build:
+      context: ../rust-captcha/docker
+    restart: unless-stopped
