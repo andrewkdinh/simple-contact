@@ -13,16 +13,7 @@ if not HTTP_ENDPOINT:
     print("ERROR: HTTP_ENDPOINT not set")
     exit(1)
 
-if not ESCAPE_HTML:
-    print("ERROR: ESCAPE_HTML not set")
-    exit(1)
-if ESCAPE_HTML == "True":
-    ESCAPE_HTML = True
-elif ESCAPE_HTML == "False":
-    ESCAPE_HTML = False
-else:
-    print("ERROR: ESCAPE_HTML must be set to True or False")
-    exit(1)
+ESCAPE_HTML = ESCAPE_HTML and ESCAPE_HTML == "True"
 
 @app.route("/", methods=["GET", "POST"])
 def index():
