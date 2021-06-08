@@ -30,12 +30,6 @@
     <a href="/">Go back to homepage</a>
   {% endif %}
 
-  {% if success %}
-  <script>
-    localStorage.clear();
-  </script>
-  {% endif %}
-
   <script defer>
     let elems = document.getElementsByClassName("script-only");
     elems[0].classList.remove("script-only");

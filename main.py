@@ -32,7 +32,7 @@ def index():
                 message = message.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
             if message != "":
                 requests.post(HTTP_ENDPOINT, data={'subject': 'New Simple Contact message', 'message': message})
-            return render_template('message.html', message = "Your message was sent successfully", success=True)
+            return render_template('message.html', message = "Your message was sent successfully")
         else:
             raise TypeError("Invalid method")
     except Exception as e:
