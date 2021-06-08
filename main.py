@@ -29,15 +29,15 @@ def index():
                 return render_template('message.html', message = "Failed captcha", attempts_left = trials_left)
             message = request.form.get('message')
             if ESCAPE_HTML:
-                message = message.replace("<", "&lt;").replace(">", "&gt;")
+                message = message.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
             if message != "":
                 requests.post(HTTP_ENDPOINT, data={'subject': 'New Simple Contact message', 'message': message})
-            return render_template('message.html', message = "Your message was sent successfully")
+            return render_template('message.html', message = "Your message was sent successfully", success=True)
         else:
             raise TypeError("Invalid method")
     except Exception as e:
         print(e)
-        return render_template('message.html', message="Error occurred")
+        return render_template('message.html', message="Error occurred"), 500
 
 def captcha_get(max_tries: int = 3, ttl: int = 120, difficulty: str = "medium") -> List[str]:
     """ Creates a captcha and returns [id, base64 encoded png] """

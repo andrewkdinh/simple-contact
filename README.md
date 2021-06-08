@@ -1,6 +1,8 @@
 # Simple Contact
 
-Extremely simple contact form with a CAPTCHA. Entries are sent to the specified HTTP endpoint.
+Extremely simple contact form with a CAPTCHA. Entries are sent to the specified HTTP endpoint. 
+
+JavaScript is not required to fill out the form, but if it is, then form fields are cached in localStorage.
 
 ## Building
 
