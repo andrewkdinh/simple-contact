@@ -18,8 +18,10 @@
 <body>
   <p>{{ message }}</p>
   {% if attempts_left %}
-    <p class="script-only">You have {{ attempts_left }} attempt(s) left</p>
-    <input class="script-only" type="button" value="Go back" onclick="window.history.back()" />
+    <span class="script-only">
+      <p >You have {{ attempts_left }} attempt(s) left</p>
+      <input type="button" value="Go back" onclick="window.history.back()" />
+    </span>
     <noscript>
       <a href="/">Go back to homepage</a>
     </noscript>
@@ -34,12 +36,9 @@
   </script>
   {% endif %}
 
-  <script>
+  <script defer>
     let elems = document.getElementsByClassName("script-only");
-    let i;
-    for (i=0; i < elems.length; i++) {
-      elems[i].classList.remove("script-only");
-    }
+    elems[0].classList.remove("script-only");
   </script>
 </body>
 </html>
