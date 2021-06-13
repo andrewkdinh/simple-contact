@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
     <textarea class="formcache" required id="message" name="message" placeholder="Message"></textarea>
 
     <div style="padding: 5px 0">
-      <img src="data:image/png;base64, {{ captcha_png }}" />
+      <img src="data:image/png;base64,{{ captcha_png }}" alt="CAPTCHA image"/>
     </div>
     <input required type="text" name="captcha-solution" placeholder="CAPTCHA Solution">
     <input type="hidden" name="captcha-id" value="{{ captcha_id }}">
